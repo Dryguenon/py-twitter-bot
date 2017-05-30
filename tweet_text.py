@@ -9,6 +9,10 @@ def reply(tweet):
     """Return text to be used as a reply"""
     message = tweet['text']
     user = tweet['user']['screen_name']
+
+    if "Which Pokemon is #1" in message:
+        return "Bulbasaur"
+    
     if "hi" in message.lower():
         berlin_time = datetime.now(timezone('Europe/Berlin'))
         date = berlin_time.strftime("It is %H:%M:%S on a %A (%d-%m-%Y).")
@@ -17,6 +21,7 @@ def reply(tweet):
     if "1+1" in message.lower():
         return "2"
 
+    
     return None
 
 def idle_text():
